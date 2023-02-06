@@ -13,7 +13,6 @@ const Register = () => {
         
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -32,7 +31,7 @@ const Register = () => {
         }
         setPasswordError('');
         
-        createUserWithEmailAndPassword(auth, name, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
         .then(result =>{
             const user = result.user;
             console.log(user)
@@ -57,11 +56,7 @@ const Register = () => {
         <div className='w-50 mx-auto'>
         <h3>Please Register</h3>
         <Form onSubmit={handleRegister}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control required name='name' type="text" placeholder="Enter your name" />
-       
-        </Form.Group>
+        
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control required name='email' type="email" placeholder="Enter email" />
